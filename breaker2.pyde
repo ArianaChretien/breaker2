@@ -118,7 +118,7 @@ def draw():
            fill(0, 0, 0)
            rect(720, 0, 80, 30)
     if yCoordinate >= 750:
-         if xCoordinate > mouseX and xCoordinate < mouseX + 80:
+         if xCoordinate > mouseX - 40 and xCoordinate < mouseX + 40:
              ySpeed = -ySpeed
 
           #rect(mouseX, 750, 80, 10, 80)
