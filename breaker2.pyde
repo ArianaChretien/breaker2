@@ -12,6 +12,7 @@ brick7 = True
 brick8 = True
 brick9 = True
 brick10 = True
+paddle = True
 
 ellipseSize = 20
 
@@ -19,6 +20,7 @@ def setup ():
     size(800, 800)
     
 def draw():
+    global xCoordinate, yCoordinate, xSpeed, ySpeed, ellipseSize, brick1, brick2, brick3, brick4, brick5, brick6, brick7, brick8, brick9, brick10, paddle
     background(0, 0, 0)
     if brick1:
         fill(0, 156, 159)
@@ -41,12 +43,12 @@ def draw():
         fill(0, 0, 0)
     rect(240, 0 , 80, 30)#brick 4
     if brick5:
-        fill(255, 204, 0)
+        fill(102, 167, 255)
     else:
         fill(0, 0, 0)
-    rect(240, 0 , 80, 30)#brick 5
+    rect(320, 0, 80, 30)#brick 5
     if brick6:
-        fill(255, 153, 0)
+        fill(255, 153, 200)
     else:
         fill(0, 0, 0)
     rect(400, 0, 80, 30)#brick 6
@@ -70,14 +72,15 @@ def draw():
     else:
         fill(0, 0, 0)
     rect(720, 0, 80, 30) #end of bricks
+    
     fill(255, 255, 255) # color of paddle
-    rect(mouseX, 790, 80, 10, 80) #this is the paddle
+    rect(mouseX, 750, 80, 10, 80) #this is the paddle
     
     if yCoordinate <= 40:
        if xCoordinate>=0 and xCoordinate <80: #1
            brick1 = False
            fill (0, 0, 0)
-           #rect(0, 0, 80, 30)
+           rect(0, 0, 80, 30)
        if xCoordinate > 80 and xCoordinate <= 160:#2
            brick2 = False
            fill(0, 0, 0)
@@ -119,14 +122,12 @@ def draw():
        
     
     r = random (50, 400)
-    global xCoordinate, yCoordinate, xSpeed, ySpeed, ellipseSize
     topBoundary = ellipseSize / 2+30
-    bottomBoundary =800 - ellipseSize /2
     
     leftBoundary = ellipseSize / 2
     rightBoundary =800 - ellipseSize /2
     
-    if yCoordinate >= bottomBoundary or yCoordinate <= topBoundary:
+    if yCoordinate <= topBoundary:
       ySpeed = -ySpeed  
     
     if xCoordinate >= rightBoundary or xCoordinate <= leftBoundary:
