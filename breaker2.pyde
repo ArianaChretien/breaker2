@@ -116,11 +116,13 @@ def draw():
        if xCoordinate >720 and xCoordinate <= 800:#10
            brick10 = False
            fill(0, 0, 0)
-           rect(204, 153, 255)
-    
-       
-       
-    
+           rect(720, 0, 80, 30)
+    if yCoordinate >= 750:
+         if xCoordinate > mouseX and xCoordinate < mouseX + 80:
+             ySpeed = -ySpeed
+
+          #rect(mouseX, 750, 80, 10, 80)
+         
     r = random (50, 400)
     topBoundary = ellipseSize / 2+30
     
